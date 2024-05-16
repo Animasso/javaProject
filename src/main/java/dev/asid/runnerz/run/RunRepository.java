@@ -12,7 +12,7 @@ import java.util.Optional;
 @Repository
 public class RunRepository {
     private final List<Run>runs = new ArrayList<>();
-//
+
     List<Run> findAll(){
     return runs;
     }
@@ -22,7 +22,23 @@ public class RunRepository {
             .findFirst();
 
     }
+    void create(Run run){
+        runs.add(run);
+    }
 
+    void update(Run run, Integer id) {
+        Optional<Run> existingRun = findById(id);
+        existingRun.ifPresent(r -> {
+            int index = runs.indexOf(r);
+            if (index != -1) {
+                runs.set(index, run);
+            }
+        });
+    }
+
+    void delete(Integer id){
+        runs.removeIf(run -> run.id().equals(id) );
+    }
     @PostConstruct
     public void init(){
         runs.add(new Run(1,
