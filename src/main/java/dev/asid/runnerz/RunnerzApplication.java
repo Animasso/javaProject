@@ -16,13 +16,13 @@ public class RunnerzApplication {
 	public static void main(String[] args){
 		SpringApplication.run(RunnerzApplication.class,args);
 	}
-	@Bean
-	CommandLineRunner runner(){
-		return args -> {
-			Run run = new Run(1,"pontault", LocalDateTime.now(),LocalDateTime.now().plus(1, ChronoUnit.HOURS),3, Location.OUTDOOR);
-			System.out.println(run);
-
-		};
-	}
+//	@Bean
+//	CommandLineRunner runner(){
+//		return args -> {
+//			Run run = new Run(1,"pontault", LocalDateTime.now(),LocalDateTime.now().plus(1, ChronoUnit.HOURS),3, Location.OUTDOOR);
+//			System.out.println(run);
+//
+//		};
+//	}
 
 }
